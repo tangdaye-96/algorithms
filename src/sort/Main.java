@@ -54,6 +54,7 @@ public class Main {
         SortStrategy heapSort = new HeapSort();
         SortStrategy mergeSort = new MergeSort();
         SortStrategy insertionSort = new InsertionSort();
-        testPerformance(defaultSort, ArrayTool.generation(100));
+        SortStrategy countingSort = new CountingSort();
+        testPerformance(quickSort, ArrayTool.generation(10));
     }
 }

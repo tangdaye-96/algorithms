@@ -9,7 +9,7 @@ import utils.ArrayTool;
  * Description: 二分法搜索
  */
 public class BinarySearch {
-    private static int search(int target, int[] array) {
+    public static int search(int target, int[] array) {
         return searchInside(target, array, 0, array.length);
     }
 

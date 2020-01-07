@@ -1,5 +1,7 @@
 package sort;
 
+import utils.ArrayTool;
+
 /**
  * Time       : 2020/1/7 00:07
  * Author     : tangdaye
@@ -18,33 +20,10 @@ public class QuickSort implements SortStrategy {
 
     private void sortInside(int[] array, int p, int q) {
         if (p < q) {
-            int r = partitioning(array, p, q);
+            int r = ArrayTool.partitioning(array, p, q);
             sortInside(array, p, r);
             sortInside(array, r + 1, q);
         }
-    }
-
-    private int partitioning(int[] array, int p, int q) {
-        // 因为要原地排序，所以这段代码真的是非常漂亮的的一段代码
-        // 循环不变量：从p到i+1之间的数字不比array[p]大，从i+1到j+1之间的数字比array[p]大
-        // 随机选取主元,交换第一个元素和主元
-        int randomIndex = (int) (Math.random() * (q - p) + p);
-        int pivot = array[randomIndex];
-        array[randomIndex] = array[p];
-        array[p] = pivot;
-        int i = p;
-        for (int j = p + 1; j < q; j++) {
-            if (array[j] <= pivot) {
-                i++;
-                int temp = array[i];
-                array[i] = array[j];
-                array[j] = temp;
-            }
-        }
-        int temp = array[i];
-        array[i] = array[p];
-        array[p] = temp;
-        return i;
     }
 
     @Override

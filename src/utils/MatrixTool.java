@@ -55,4 +55,29 @@ public class MatrixTool {
         }
         return result;
     }
+
+    /**
+     * Description: 每一行每一列都单调增的矩阵
+     */
+    public static int[][] generateSortedMatrix(int m, int n) {
+        int[][] result = new int[m][n];
+        // 第一行
+        for (int i = 0; i < m; i++) {
+            if (i == 0) result[0][i] = 0;
+            else result[0][i] = (int) (result[0][i - 1] + Math.random() * 2);
+        }
+        // 第一列
+        for (int i = 0; i < n; i++) {
+            if (i == 0) result[i][0] = 0;
+            else result[i][0] = (int) (result[i - 1][0] + Math.random() * 2);
+        }
+        for (int i = 1; i < m; i++) {
+            for (int j = 1; j < n; j++) {
+                int left = (int) (result[i][j - 1] + Math.random() * 2);
+                int top = (int) (result[i - 1][j] + Math.random() * 2);
+                result[i][j] = left >= top ? left : top;
+            }
+        }
+        return result;
+    }
 }
