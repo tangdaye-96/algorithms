@@ -1,4 +1,4 @@
-package structure;
+package structure.map;
 
 /**
  * Time       : 2020/1/8 21:36

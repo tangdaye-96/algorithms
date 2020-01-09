@@ -55,6 +55,7 @@ public class Main {
         SortStrategy mergeSort = new MergeSort();
         SortStrategy insertionSort = new InsertionSort();
         SortStrategy countingSort = new CountingSort();
-        testPerformance(quickSort, ArrayTool.generation(10));
+        SortStrategy binarySearchTreeSort = new BinarySearchTreeSort();
+        testPerformance(defaultSort, ArrayTool.generation(1000000));
     }
 }

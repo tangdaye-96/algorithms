@@ -67,4 +67,24 @@ public class ArrayTool {
         sb.append("]");
         return sb.toString();
     }
+
+    public static Integer[] castIntArray(int[] array) {
+        Integer[] result = new Integer[array.length];
+        int index = 0;
+        for (int i : array) {
+            result[index] = i;
+            index += 1;
+        }
+        return result;
+    }
+
+    public static int[] castIntegerArray(Integer[] array) {
+        int[] result = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] != null) {
+                result[i] = array[i];
+            }
+        }
+        return result;
+    }
 }

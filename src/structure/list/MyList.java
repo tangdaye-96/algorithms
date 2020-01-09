@@ -1,4 +1,4 @@
-package structure.List;
+package structure.list;
 
 /**
  * Time       : 2020/1/8 22:36
@@ -10,6 +10,5 @@ public interface MyList<T> extends Iterable<T> {
 
     void add(T value);
 
-    int addWithSort(T value);
-
+    T[] toArray(T[] array);
 }

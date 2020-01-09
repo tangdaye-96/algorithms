@@ -1,6 +1,7 @@
-package structure;
+package structure.map;
 
-import structure.List.MyLinkedList;
+import structure.list.MyLinkedList;
+import structure.list.MySortLinkedList;
 
 /**
  * Time       : 2020/1/8 21:39
@@ -85,19 +86,19 @@ public class MyHashMap<K extends Comparable<K>, V> implements MyMap<K, V> {
         }
     }
 
-    private static final int SIZE = 1024;
+    private static final int SIZE = 997;
     @SuppressWarnings("unchecked")
-    private MyLinkedList<MapEntry<K, V>>[] buckets = new MyLinkedList[SIZE];
+    private MySortLinkedList<MapEntry<K, V>>[] buckets = new MySortLinkedList[SIZE];
 
     @Override
     public V put(K key, V value) {
         V oldValue = null;
-        int index = Math.abs(key.hashCode()) % SIZE; // 散列码与size的余数
+        int index = Math.abs(key.hashCode()) % SIZE; // 散列码与size的余数，选取hash函数时，可以从一系列函数族中随机选择一个函数
         if (buckets[index] == null) {
-            buckets[index] = new MyLinkedList<>();// 如果某个bucket上还没有list，新建一个
+            buckets[index] = new MySortLinkedList<>();// 如果某个bucket上还没有list，新建一个
         }
         // 插入这个list
-        MyLinkedList<MapEntry<K, V>> bucket = buckets[index];
+        MySortLinkedList<MapEntry<K, V>> bucket = buckets[index];
         boolean found = false;
         for (MapEntry<K, V> current : bucket) {
             if (current.getKey().equals(key)) {
